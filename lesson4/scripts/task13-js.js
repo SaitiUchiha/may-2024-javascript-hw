@@ -4,7 +4,7 @@
 function exchange(sumUAH,currencyValues,exchangeCurrency) {
    let YouWant = exchangeCurrency;
     for (const type of currencyValues) {
-        if ( type.currency == 'USD'){
+        if ( type.currency === YouWant){
             YouWant = sumUAH/type.value;
         }
     }
