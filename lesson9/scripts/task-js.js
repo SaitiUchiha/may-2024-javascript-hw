@@ -191,10 +191,9 @@ block.forEach(function(element){
 
 console.log(biggestHeight);
 for (const element of block) {
-   let divHeight= element.offsetHeight;
-   divHeight.style.height = JSON.stringify(biggestHeight)+'px';
+   element.style.height =  biggestHeight+'px';
 }
-я найшла як знайти максимальну висоту але не знаю як задати її всім div....
+// я найшла як знайти максимальну висоту але не знаю як задати її всім div....
 
 // =========================
 //     #wP0xXPc
