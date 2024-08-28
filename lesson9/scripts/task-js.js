@@ -185,14 +185,15 @@ for (const simpson of simpsons) {
 
 let biggestHeight = 0;
 let block = document.querySelectorAll('div.member');
-block.forEach(function(element){
+block.forEach(function (element) {
     biggestHeight = element.offsetHeight > biggestHeight ? element.offsetHeight : biggestHeight;
 });
-
 console.log(biggestHeight);
 for (const element of block) {
-   element.style.height =  biggestHeight+'px';
+    element.style.height = biggestHeight + 'px';
 }
+
+
 // я найшла як знайти максимальну висоту але не знаю як задати її всім div....
 
 // =========================
