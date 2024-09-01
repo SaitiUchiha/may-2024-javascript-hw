@@ -45,31 +45,64 @@ objFillBttn.onclick = function (ev) {
 // є сторінка, на якій є блок, я кому знаходиьтся цифра. написати код, який при кожному перезавантажені сторінки буде додавати до неї +1
 let numberPlus = +localStorage.getItem('number') || 0;
 numberPlus += 1;
-localStorage.setItem('number+', String(numberPlus));
+localStorage.setItem('number', String(numberPlus));
 
-let h1 =document.getElementById('numberPlus');
-h1.innerText= numberPlus;
+let h1 = document.getElementById('numberPlus');
+h1.innerText = numberPlus;
 
 // В мене при перезагрузці чомусь рахує тільки один раз, а далі ні. Можете підказати чого не хватає?
 
 
-
-
-
-
 // #LhSfdhM3
-// Є сторінка index.html (назва довільна), при відвідуванні якої в локальне сховще, в масив sessionsList зберігається інформація про дату та час відвідування сторінки. Є  сторінка sessionsListPage.html (назва довільна), при відвідуванні якої потрібно відмалювати всю інформацію про відвідування сторінки index.html. Інфу НЕ виводити в консоль, а малювати в DOM
-//
+// Є сторінка index.html (назва довільна), при відвідуванні якої в локальне сховще, в масив sessionsList зберігається
+// інформація про дату та час відвідування сторінки. Є сторінка sessionsListPage.html (назва довільна), при відвідуванні
+// якої потрібно відмалювати всю інформацію про відвідування сторінки index.html. Інфу НЕ виводити в консоль, а малювати в DOM
+
+
+let sessionsList;
+// let sessionsList = JSON.parse(localStorage.getItem('sessionsList')) || []; Лишаю активною довшу версію оскільки на даний момент мені легше сприйняти саме її.
+if (localStorage.getItem('sessionsList')) {
+    sessionsList = JSON.parse(localStorage.getItem('sessionsList'));
+} else {
+    sessionsList = [];
+}
+sessionsList.push(new Date());
+localStorage.setItem('sessionsList', JSON.stringify(sessionsList))
+
+
 //
 //
 // #Jg0gPO00
 // створити конвертор ваги з кг в фунти. данні заповнюються через інпут. При введенні даних обрахунок стається миттєво, без натискань додаткових кнопок
-//
+
+let kgValue = document.getElementById('kg');
+let result = document.getElementById('result');
+kgValue.oninput = function () {
+    let kilograms = +this.value;
+    result.innerText = kilograms / 0.45359237;
+}
+
+
 // #RbQGnH5DuC
 // В localStorage зберігаються масиви. Вам потрібно зробити функцію, які дістає потрібний вам масив з localStorage та додає в нього об'єкт
 // сигнатура функції -
 // addToLocalStorage(arrayName:string,objToAdd:any{}):void
-//
+
+function addToLocalStorage(arrayName,objToAdd) {
+    let item = localStorage.getItem(arrayName)
+    if (!item){
+        console.log('Error!')
+    }
+    let array = JSON.parse(item);
+    if (typeof objToAdd === 'object'){
+        array.push(objToAdd);
+    }
+    localStorage.setItem(arrayName, JSON.stringify(array))
+}
+// addToLocalStorage('sessionsList', {})
+
+
+
 //
 // #kUSgFqWY
 // Створити 3 інпута та кнопку. Один визначає кількість рядків, другий - кількість ячеєк, третій вмиіст ячеєк.

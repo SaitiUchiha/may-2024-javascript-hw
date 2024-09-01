@@ -10,7 +10,11 @@
         width: 200px;
         background-color: #5600B8;
     }
+    .checkAge{
+        margin-top: 50px;
+    }
     #number{
+        margin-top: 50px;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -19,6 +23,12 @@
         background-color: #5600B8;
         color: aqua;
     }
+    .objFill{
+        margin-top: 50px;
+    }
+    .kgToFtConverter{
+        margin-top: 50px;
+    }
     </style>
 </head>
 <body>
@@ -26,13 +36,13 @@
     <button>Clear</button>
 </div>
 
-<form id="checkAge">
+<form id="checkAge" class="checkAge">
     <label for="age">Put your Age in</label>
     <input id="age" type="number">
     <button id="ageCheker">Check</button>
 </form>
 
-<form name="objFill">
+<form name="objFill" class="objFill">
     <label>Put your Name in</label>
     <input name="name" type="text">
     <label>Put your Surname in</label>
@@ -45,6 +55,12 @@
 <div id="number">
     <h1 id="numberPlus"></h1>
 </div>
+
+<form class="kgToFtConverter">
+    <label>Put kg in</label>
+    <input id="kg" type="number">
+    <h3 id="result"></h3>
+</form>
 
 
 
