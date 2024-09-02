@@ -135,21 +135,21 @@ tableCreator.onsubmit = function (ev) {
 // зміна ціни відбувається тільки на перезавантаження, які відбулись пізніше ніж 10 секунд після попереднього.
 // При перезавантаженні, яке відбулось раніше ніж минуло 10 секунд - нічого не відбувається
 
-let blockValue = +localStorage.getItem('text100grn') || ({value:100, timestamp:new Date().getTime()});
+let blockValue = JSON.parse(localStorage.getItem('text100grn')) ||
+    localStorage.setItem('text100grn', JSON.stringify({value: 100, timestamp: new Date().getTime()}));
 let blockTimeValue = blockValue.timestamp;
 console.log(blockTimeValue)
 let currentTime = new Date().getTime();
 console.log(currentTime)
-if (currentTime - blockTimeValue > 10000){
+if (currentTime - blockTimeValue > 10000) {
     blockValueVal = blockValue.value;
     blockValueVal += 10;
-    localStorage.setItem('text100grn', String({ value: blockValueVal, timestamp:new Date().getTime()}));
+    localStorage.setItem('text100grn', JSON.stringify({value: blockValueVal, timestamp: new Date().getTime()}));
 }
 
-let h1v100= document.getElementById('100grn');
-h1v100.innerText = blockValue.value+'grn';
+let h1v100 = document.getElementById('100grn');
+h1v100.innerText = blockValue.value + 'grn';
 
-можете підказати як правильно з timestamp розыбратися а то в мене blockTimeValue і currentTime получаються однаковими??
 
 
 // #NKB0tgWIK1G
