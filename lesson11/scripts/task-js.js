@@ -97,26 +97,3 @@ fetch(url)
         }
 
     });
-
-
-
-// let h1 = document.createElement('h1');
-// h1.innerText = recipe.name;
-// let h2 = document.createElement('h2');
-// h2.innerText = `ID: ${recipe.id}
-// Cuisine: ${recipe.cuisine}`;
-// let h3 = document.createElement('h3');
-// h3.innerText = `
-// prepTimeMinutes: ${recipe.prepTimeMinutes},
-// cookTimeMinutes: ${recipe.cookTimeMinutes},
-// servings: ${recipe.servings},
-// difficulty: "${recipe.difficulty}",
-// caloriesPerServing: ${recipe.caloriesPerServing},
-// rating: ${recipe.rating},
-// reviewCount: ${recipe.reviewCount},
-// userId: ${recipe.userId}`;
-// let img = document.createElement('img');
-// img.src = recipe.image;
-// img.classList.add('img');
-
-// div.append(h1, h2, h3, img, ulTitl, ul, olTitl, ol);
