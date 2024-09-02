@@ -88,34 +88,70 @@ kgValue.oninput = function () {
 // сигнатура функції -
 // addToLocalStorage(arrayName:string,objToAdd:any{}):void
 
-function addToLocalStorage(arrayName,objToAdd) {
+function addToLocalStorage(arrayName, objToAdd) {
     let item = localStorage.getItem(arrayName)
-    if (!item){
+    if (!item) {
         console.log('Error!')
     }
     let array = JSON.parse(item);
-    if (typeof objToAdd === 'object'){
+    if (typeof objToAdd === 'object') {
         array.push(objToAdd);
     }
     localStorage.setItem(arrayName, JSON.stringify(array))
 }
-// addToLocalStorage('sessionsList', {})
 
+// addToLocalStorage('sessionsList', {})
 
 
 //
 // #kUSgFqWY
 // Створити 3 інпута та кнопку. Один визначає кількість рядків, другий - кількість ячеєк, третій вмиіст ячеєк.
 //     При натисканні кнопки, вся ця інформація зчитується і формується табличка, з відповідним вмістом.
-//
-//
+
+let table = document.getElementById('table');
+let tableCreator = document.forms ['createTable'];
+tableCreator.onsubmit = function (ev) {
+    ev.preventDefault();
+    let rowQuantity = +tableCreator.rows.value;
+    let cellQuantity = +tableCreator.cells.value;
+    let content = tableCreator.content.value;
+    console.log(rowQuantity, cellQuantity, content);
+    for (let i = 0; i < rowQuantity; i++) {
+        let tr = document.createElement('tr');
+        for (let j = 0; j < cellQuantity; j++) {
+            let td = document.createElement('td');
+            td.innerText = content;
+            tr.appendChild(td);
+        }
+        table.appendChild(tr);
+    }
+}
+
+
 // #bq1zkx7WP
-// *** (подібне було вище, але...будьте уважні в другій частині) створити сторінку з довільним блоком, в середині якого є значення "100грн"
+// *** (подібне було вище, але...будьте уважні в другій частині) створити сторінку з довільним блоком, в середині якого
+// є значення "100грн"
 // при перезавантаженні сторінки до значаення додається по 10грн, але !!!
 // зміна ціни відбувається тільки на перезавантаження, які відбулись пізніше ніж 10 секунд після попереднього.
 // При перезавантаженні, яке відбулось раніше ніж минуло 10 секунд - нічого не відбувається
-//
-//
+
+let blockValue = +localStorage.getItem('text100grn') || ({value:100, timestamp:new Date().getTime()});
+let blockTimeValue = blockValue.timestamp;
+console.log(blockTimeValue)
+let currentTime = new Date().getTime();
+console.log(currentTime)
+if (currentTime - blockTimeValue > 10000){
+    blockValueVal = blockValue.value;
+    blockValueVal += 10;
+    localStorage.setItem('text100grn', String({ value: blockValueVal, timestamp:new Date().getTime()}));
+}
+
+let h1v100= document.getElementById('100grn');
+h1v100.innerText = blockValue.value+'grn';
+
+можете пыдказати як правильно з timestamp розыбратися а то в мене blockTimeValue і currentTime получаються однаковими??
+
+
 // #NKB0tgWIK1G
 // ***PAGINATION
 // зробити масив на 100 об'єктів та дві кнопки prev next
