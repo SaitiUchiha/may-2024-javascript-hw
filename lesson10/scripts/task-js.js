@@ -149,7 +149,7 @@ if (currentTime - blockTimeValue > 10000){
 let h1v100= document.getElementById('100grn');
 h1v100.innerText = blockValue.value+'grn';
 
-можете пыдказати як правильно з timestamp розыбратися а то в мене blockTimeValue і currentTime получаються однаковими??
+можете підказати як правильно з timestamp розыбратися а то в мене blockTimeValue і currentTime получаються однаковими??
 
 
 // #NKB0tgWIK1G
